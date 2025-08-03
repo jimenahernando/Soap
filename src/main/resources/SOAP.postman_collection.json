@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "3af637cf-7ecb-4a3f-ac00-5e482f7ffadd",
+		"name": "SOAP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22001463",
+		"_collection_link": "https://lapesteteam.postman.co/workspace/LAPESTE~bec75a95-49a8-42b0-855f-574dbe5da88f/collection/22001463-3af637cf-7ecb-4a3f-ac00-5e482f7ffadd?action=share&source=collection_link&creator=22001463"
+	},
+	"item": [
+		{
+			"name": "Externos",
+			"item": [
+				{
+					"name": "NumberToWords",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"connection": true,
+							"accept-encoding": true,
+							"accept": true,
+							"user-agent": true,
+							"host": true,
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "www.dataaccess.com",
+								"type": "text"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "\"http://www.dataaccess.com/webservicesserver/NumberToWords\"",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <NumberToWords xmlns=\"http://www.dataaccess.com/webservicesserver/\">\r\n      <ubiNum>5</ubiNum>\r\n    </NumberToWords>\r\n  </soap:Body>\r\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+							"protocol": "https",
+							"host": [
+								"www",
+								"dataaccess",
+								"com"
+							],
+							"path": [
+								"webservicesserver",
+								"NumberConversion.wso"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Propios",
+			"item": [
+				{
+					"name": "NumberToWords",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/number/toWords/manual/:number",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"number",
+								"toWords",
+								"manual",
+								":number"
+							],
+							"variable": [
+								{
+									"key": "number",
+									"value": "86"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NumberToWords v2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/number/toWords-v2/manual/:number",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"number",
+								"toWords-v2",
+								"manual",
+								":number"
+							],
+							"variable": [
+								{
+									"key": "number",
+									"value": "44"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NumberToWords marshaller",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/number/toWords/marshaller/:number",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"number",
+								"toWords",
+								"marshaller",
+								":number"
+							],
+							"variable": [
+								{
+									"key": "number",
+									"value": "86"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
