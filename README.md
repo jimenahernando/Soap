@@ -41,3 +41,12 @@ Para el ultimo, se corresponde con el objeto de respuesta que haya creado
 - lombok
 - spring-boot-devtools (opcional)
 - spring-boot-starter-actuator (opcional)
+
+## SEGURIDAD
+Si bien para acceder a la aplicacion externa desde SoapUI y/o Postman no se han requerido certificados, desde la aplicacion nuestra cliente si. Por lo tanto para resolver esta cuestion lo que hicimos es ignorar la validacion de certificados SSL en entorno local.
+Existen dos formas de hacerlo: 
+- Usando **HttpsUrlConnectionMessageSender** de Spring WS que usa directamente el SSLContext y el HostnameVerifier que le pasamos.
+- Usando **Apache HttpClient 5**
+
+Usamos la primera opción.
+> IMPORTANTE ⚠️! Esto debe usarse solo en desarrollo. En producción deberías importar el certificado al truststore de Java (cacerts) 
